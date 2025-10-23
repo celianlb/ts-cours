@@ -1,3 +1,4 @@
+# 7️⃣ Enums
 
 Les **Enums** définissent un ensemble de constantes nommées.
 
@@ -7,8 +8,8 @@ Sans enum, vous utilisez des strings "magiques" partout :
 
 ```typescript
 // ❌ Sans enum
-let status = "pending";
-status = "pendding"; // Typo, pas d'erreur ! 😱
+let status = "pending"
+status = "pendding" // Typo, pas d'erreur ! 😱
 
 // ✅ Avec enum
 enum OrderStatus {
@@ -17,8 +18,8 @@ enum OrderStatus {
   Delivered = "delivered",
 }
 
-let status = OrderStatus.Pending;
-status = OrderStatus.Pendding; // ❌ Erreur !
+let status = OrderStatus.Pending
+status = OrderStatus.Pendding // ❌ Erreur !
 ```
 
 ## Numeric Enums
@@ -51,10 +52,10 @@ enum LogLevel {
 }
 
 function log(message: string, level: LogLevel): void {
-  console.log(`[${level}] ${message}`);
+  console.log(`[${level}] ${message}`)
 }
 
-log("App started", LogLevel.Info);
+log("App started", LogLevel.Info)
 ```
 
 **Avantage :** Plus lisible dans les logs.
@@ -67,7 +68,7 @@ const enum DirectionConst {
   Down,
 }
 
-const dir = DirectionConst.Up;
+const dir = DirectionConst.Up
 // Transpilé en: const dir = 0; (inlined)
 ```
 
@@ -79,8 +80,8 @@ enum Status {
   Active = 1,
 }
 
-console.log(Status.Active); // 1
-console.log(Status[1]); // "Active"
+console.log(Status.Active) // 1
+console.log(Status[1]) // "Active"
 ```
 
 ## Enums vs Union Types
@@ -93,7 +94,7 @@ enum Color {
 }
 
 // Union Type équivalent
-type ColorUnion = "RED" | "GREEN";
+type ColorUnion = "RED" | "GREEN"
 ```
 
 **Quand utiliser quoi ?**

@@ -1,3 +1,4 @@
+# 2️⃣ JavaScript vs TypeScript
 
 ## Comparaison directe avec un exemple réel
 
@@ -13,27 +14,27 @@ function createUser(name, email, age) {
     email: email,
     age: age,
     createdAt: new Date(),
-  };
+  }
 }
 
 function isAdult(user) {
-  return user.age >= 18;
+  return user.age >= 18
 }
 
 // Utilisation qui semble fonctionner
-const user = createUser("Alice", "alice@email.com", 25);
-console.log(isAdult(user)); // true ✅
+const user = createUser("Alice", "alice@email.com", 25)
+console.log(isAdult(user)) // true ✅
 
 // Mais ces erreurs passent inaperçues...
-const user2 = createUser("Bob", "bob@email", "25");
+const user2 = createUser("Bob", "bob@email", "25")
 // age est une string, la comparaison sera bizarre
-console.log(isAdult(user2)); // "25" >= 18 → true (coercion) 😱
+console.log(isAdult(user2)) // "25" >= 18 → true (coercion) 😱
 
-const user3 = createUser("Charlie");
+const user3 = createUser("Charlie")
 // email et age sont undefined
-console.log(user3.email.toLowerCase()); // ❌ CRASH !
+console.log(user3.email.toLowerCase()) // ❌ CRASH !
 
-const user4 = createUser("David", "david@email.com", 25, "extra", "ignored");
+const user4 = createUser("David", "david@email.com", 25, "extra", "ignored")
 // Paramètres supplémentaires ignorés silencieusement 🤷
 ```
 
@@ -49,10 +50,10 @@ const user4 = createUser("David", "david@email.com", 25, "extra", "ignored");
 ```typescript
 // user.ts
 interface User {
-  name: string;
-  email: string;
-  age: number;
-  createdAt: Date;
+  name: string
+  email: string
+  age: number
+  createdAt: Date
 }
 
 function createUser(name: string, email: string, age: number): User {
@@ -61,30 +62,30 @@ function createUser(name: string, email: string, age: number): User {
     email,
     age,
     createdAt: new Date(),
-  };
+  }
 }
 
 function isAdult(user: User): boolean {
-  return user.age >= 18;
+  return user.age >= 18
 }
 
 // Utilisation correcte
-const user: User = createUser("Alice", "alice@email.com", 25);
-console.log(isAdult(user)); // ✅ true
+const user: User = createUser("Alice", "alice@email.com", 25)
+console.log(isAdult(user)) // ✅ true
 
 // Toutes ces erreurs sont IMPOSSIBLES
-const user2 = createUser("Bob", "bob@email", "25");
+const user2 = createUser("Bob", "bob@email", "25")
 // ❌ Erreur de compilation : "25" n'est pas un number
 
-const user3 = createUser("Charlie");
+const user3 = createUser("Charlie")
 // ❌ Erreur : 2 arguments manquants
 
-const user4 = createUser("David", "david@email.com", 25, "extra");
+const user4 = createUser("David", "david@email.com", 25, "extra")
 // ❌ Erreur : trop d'arguments
 
 // L'IDE vous guide automatiquement
-console.log(user.email.toLowerCase()); // ✅ Autocomplétion
-console.log(user.unknownProp); // ❌ Erreur : propriété n'existe pas
+console.log(user.email.toLowerCase()) // ✅ Autocomplétion
+console.log(user.unknownProp) // ❌ Erreur : propriété n'existe pas
 ```
 
 **Les avantages :**

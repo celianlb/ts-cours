@@ -1,3 +1,4 @@
+# 1️⃣1️⃣ Fichiers de déclaration (.d.ts)
 
 Les **declaration files** (`.d.ts`) contiennent uniquement des types, pas d'implémentation.
 
@@ -24,12 +25,12 @@ Les **declaration files** (`.d.ts`) contiennent uniquement des types, pas d'impl
 ```typescript
 // user.ts
 export interface User {
-  id: number;
-  name: string;
+  id: number
+  name: string
 }
 
 export function createUser(name: string): User {
-  return { id: Math.random(), name };
+  return { id: Math.random(), name }
 }
 ```
 
@@ -38,11 +39,11 @@ export function createUser(name: string): User {
 ```typescript
 // user.d.ts
 export interface User {
-  id: number;
-  name: string;
+  id: number
+  name: string
 }
 
-export declare function createUser(name: string): User;
+export declare function createUser(name: string): User
 ```
 
 ## Écrire des .d.ts manuellement
@@ -52,11 +53,11 @@ export declare function createUser(name: string): User;
 ```typescript
 // awesome-lib.d.ts
 declare module "awesome-lib" {
-  export function doSomething(value: string): number;
+  export function doSomething(value: string): number
 
   export interface Config {
-    apiUrl: string;
-    timeout: number;
+    apiUrl: string
+    timeout: number
   }
 }
 ```
@@ -67,26 +68,26 @@ declare module "awesome-lib" {
 // global.d.ts
 declare global {
   interface Window {
-    myCustomProperty: string;
+    myCustomProperty: string
   }
 
-  var MY_GLOBAL_VAR: number;
+  var MY_GLOBAL_VAR: number
 }
 
-export {}; // Fait de ce fichier un module
+export {} // Fait de ce fichier un module
 ```
 
 ## Augmenter les types d'Express
 
 ```typescript
 // types/express.d.ts
-import { User } from "@models/User";
+import { User } from "@models/User"
 
 declare global {
   namespace Express {
     interface Request {
-      user?: User;
-      token?: string;
+      user?: User
+      token?: string
     }
   }
 }
@@ -96,8 +97,8 @@ Maintenant :
 
 ```typescript
 app.get("/profile", (req, res) => {
-  console.log(req.user?.name); // ✅ TypeScript connaît user
-});
+  console.log(req.user?.name) // ✅ TypeScript connaît user
+})
 ```
 
 ## DefinitelyTyped et @types

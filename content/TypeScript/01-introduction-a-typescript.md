@@ -1,3 +1,4 @@
+# 1️⃣ Introduction à TypeScript
 
 ## Qu'est-ce que TypeScript ?
 
@@ -26,11 +27,11 @@ En JavaScript, une erreur de type peut passer totalement inaperçue jusqu'à ce 
 ```javascript
 // JavaScript - Bug invisible jusqu'à l'exécution
 function calculateTotal(price, quantity) {
-  return price * quantity;
+  return price * quantity
 }
 
-const total = calculateTotal("100", 2);
-console.log(total); // "100100" - Bug silencieux ! 😱
+const total = calculateTotal("100", 2)
+console.log(total) // "100100" - Bug silencieux ! 😱
 ```
 
 Ce bug ne sera découvert que lorsqu'un utilisateur aura le mauvais type de données. En TypeScript, c'est impossible.
@@ -53,13 +54,13 @@ Quand vous rejoignez un projet JavaScript, vous devez lire tout le code pour com
 
 ```typescript
 function calculateTotal(price: number, quantity: number): number {
-  return price * quantity;
+  return price * quantity
 }
 
-calculateTotal("100", 2); // ❌ Erreur de compilation
-calculateTotal(100); // ❌ Erreur : argument manquant
-calculateTotal(100, 2, "extra"); // ❌ Erreur : trop d'arguments
-calculateTotal(100, 2); // ✅ OK
+calculateTotal("100", 2) // ❌ Erreur de compilation
+calculateTotal(100) // ❌ Erreur : argument manquant
+calculateTotal(100, 2, "extra") // ❌ Erreur : trop d'arguments
+calculateTotal(100, 2) // ✅ OK
 ```
 
 Le compilateur TypeScript agit comme un filet de sécurité qui ne laisse rien passer.
@@ -76,14 +77,14 @@ Besoin de renommer une fonction utilisée dans 50 fichiers ? Un simple "Rename S
 
 ```typescript
 interface User {
-  id: number;
-  name: string;
-  email: string;
-  age?: number; // ? indique que c'est optionnel
+  id: number
+  name: string
+  email: string
+  age?: number // ? indique que c'est optionnel
 }
 
 // En lisant juste la signature, tout est clair :
-function createUser(name: string, email: string, age?: number): User;
+function createUser(name: string, email: string, age?: number): User
 ```
 
 Pas besoin de documentation externe, les types parlent d'eux-mêmes.

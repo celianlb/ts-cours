@@ -1,3 +1,4 @@
+# 4️⃣ Types avancés
 
 ## Union Types : "Ceci OU cela"
 
@@ -5,17 +6,17 @@ Un **Union Type** représente une valeur qui peut être l'un parmi plusieurs typ
 
 ```typescript
 // id peut être string OU number
-let id: string | number;
-id = "abc123"; // ✅ OK
-id = 123; // ✅ OK
-id = true; // ❌ Erreur
+let id: string | number
+id = "abc123" // ✅ OK
+id = 123 // ✅ OK
+id = true // ❌ Erreur
 
 // Use case : gestion flexible
 function formatId(id: string | number): string {
   if (typeof id === "string") {
-    return id.toUpperCase();
+    return id.toUpperCase()
   } else {
-    return `ID-${id}`;
+    return `ID-${id}`
   }
 }
 ```
@@ -26,10 +27,10 @@ function formatId(id: string | number): string {
 
 ```typescript
 // Status ne peut être QUE l'une de ces valeurs
-type Status = "pending" | "success" | "error";
+type Status = "pending" | "success" | "error"
 
-let orderStatus: Status = "pending"; // ✅
-orderStatus = "shipped"; // ❌ Erreur : valeur non autorisée
+let orderStatus: Status = "pending" // ✅
+orderStatus = "shipped" // ❌ Erreur : valeur non autorisée
 ```
 
 ## Intersection Types : "Ceci ET cela"
@@ -38,24 +39,24 @@ Un **Intersection Type** combine plusieurs types. L'objet doit satisfaire TOUS l
 
 ```typescript
 interface Person {
-  name: string;
-  age: number;
+  name: string
+  age: number
 }
 
 interface Employee {
-  companyId: string;
-  position: string;
+  companyId: string
+  position: string
 }
 
 // EmployeePerson doit avoir TOUTES les propriétés
-type EmployeePerson = Person & Employee;
+type EmployeePerson = Person & Employee
 
 const employee: EmployeePerson = {
   name: "Alice",
   age: 30,
   companyId: "EMP001",
   position: "Developer",
-};
+}
 ```
 
 ## Literal Types : valeurs exactes comme types
@@ -64,12 +65,12 @@ Les **Literal Types** utilisent une valeur spécifique comme type.
 
 ```typescript
 // direction ne peut être que ces 4 valeurs exactes
-let direction: "north" | "south" | "east" | "west";
-direction = "north"; // ✅
-direction = "northwest"; // ❌ Erreur
+let direction: "north" | "south" | "east" | "west"
+direction = "north" // ✅
+direction = "northwest" // ❌ Erreur
 
 // Avec des numbers
-let diceRoll: 1 | 2 | 3 | 4 | 5 | 6;
+let diceRoll: 1 | 2 | 3 | 4 | 5 | 6
 ```
 
 ### Discriminated Unions : Le pattern élégant
@@ -78,33 +79,33 @@ En combinant literal types et unions, vous créez des types auto-documentés.
 
 ```typescript
 interface SuccessResponse {
-  status: "success"; // Literal type unique
-  data: any;
+  status: "success" // Literal type unique
+  data: any
 }
 
 interface ErrorResponse {
-  status: "error"; // Literal type différent
-  error: string;
+  status: "error" // Literal type différent
+  error: string
 }
 
 interface LoadingResponse {
-  status: "loading";
+  status: "loading"
 }
 
-type ApiResponse = SuccessResponse | ErrorResponse | LoadingResponse;
+type ApiResponse = SuccessResponse | ErrorResponse | LoadingResponse
 
 function handleResponse(response: ApiResponse): void {
   // TypeScript narrow automatiquement sur 'status'
   switch (response.status) {
     case "success":
-      console.log(response.data); // ✅ data existe
-      break;
+      console.log(response.data) // ✅ data existe
+      break
     case "error":
-      console.log(response.error); // ✅ error existe
-      break;
+      console.log(response.error) // ✅ error existe
+      break
     case "loading":
-      console.log("Loading..."); // ✅ pas d'autres propriétés
-      break;
+      console.log("Loading...") // ✅ pas d'autres propriétés
+      break
   }
 }
 ```
@@ -134,24 +135,24 @@ Avec `strictNullChecks: true`, `null` et `undefined` doivent être gérés expli
 
 ```typescript
 // ❌ Avec strictNullChecks
-let name: string = null; // Erreur
+let name: string = null // Erreur
 
 // ✅ Autoriser null explicitement
-let nullableName: string | null = null;
+let nullableName: string | null = null
 
 // Optional chaining
 interface User {
-  name: string;
+  name: string
   address?: {
-    city: string;
-  };
+    city: string
+  }
 }
 
-const user: User = { name: "Alice" };
-console.log(user.address?.city); // undefined (pas d'erreur)
+const user: User = { name: "Alice" }
+console.log(user.address?.city) // undefined (pas d'erreur)
 
 // Nullish coalescing
-const city = user.address?.city ?? "Unknown";
+const city = user.address?.city ?? "Unknown"
 ```
 
 ## Types spéciaux
@@ -160,7 +161,7 @@ const city = user.address?.city ?? "Unknown";
 
 ```typescript
 function logMessage(message: string): void {
-  console.log(message);
+  console.log(message)
   // Pas de return
 }
 ```
@@ -169,7 +170,7 @@ function logMessage(message: string): void {
 
 ```typescript
 function throwError(message: string): never {
-  throw new Error(message);
+  throw new Error(message)
 }
 
 function infiniteLoop(): never {
@@ -181,10 +182,10 @@ function infiniteLoop(): never {
 
 ```typescript
 function acceptObject(obj: object): void {
-  console.log(obj);
+  console.log(obj)
 }
 
-acceptObject({ name: "Alice" }); // ✅
-acceptObject([1, 2, 3]); // ✅
-acceptObject(42); // ❌ number est primitif
+acceptObject({ name: "Alice" }) // ✅
+acceptObject([1, 2, 3]) // ✅
+acceptObject(42) // ❌ number est primitif
 ```

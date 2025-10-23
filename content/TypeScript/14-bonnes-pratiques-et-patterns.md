@@ -1,3 +1,4 @@
+# 1️⃣4️⃣ Bonnes pratiques
 
 ## Les 3 règles d'or
 
@@ -12,33 +13,30 @@
 ```typescript
 // ❌ MAUVAIS
 function process(data: any): any {
-  return data.value;
+  return data.value
 }
 
 // ✅ BON
 interface Data {
-  value: string;
+  value: string
 }
 
 function process(data: Data): string {
-  return data.value;
+  return data.value
 }
 ```
 
 ## 2. Utiliser `unknown` pour l'inconnu
 
 ```typescript
-function parseJSON<T>(
-  json: string,
-  validator: (data: unknown) => data is T
-): T {
-  const parsed: unknown = JSON.parse(json);
+function parseJSON<T>(json: string, validator: (data: unknown) => data is T): T {
+  const parsed: unknown = JSON.parse(json)
 
   if (!validator(parsed)) {
-    throw new Error("Invalid data");
+    throw new Error("Invalid data")
   }
 
-  return parsed;
+  return parsed
 }
 ```
 
@@ -46,12 +44,7 @@ function parseJSON<T>(
 
 ```typescript
 function isUser(data: unknown): data is User {
-  return (
-    typeof data === "object" &&
-    data !== null &&
-    "name" in data &&
-    "email" in data
-  );
+  return typeof data === "object" && data !== null && "name" in data && "email" in data
 }
 ```
 
@@ -59,29 +52,27 @@ function isUser(data: unknown): data is User {
 
 ```typescript
 class AppError extends Error {
-  constructor(message: string, public statusCode: number) {
-    super(message);
-    this.name = this.constructor.name;
+  constructor(
+    message: string,
+    public statusCode: number,
+  ) {
+    super(message)
+    this.name = this.constructor.name
   }
 }
 
 class NotFoundError extends AppError {
   constructor(resource: string) {
-    super(`${resource} not found`, 404);
+    super(`${resource} not found`, 404)
   }
 }
 
 // Middleware
-function errorHandler(
-  err: Error,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
+function errorHandler(err: Error, req: Request, res: Response, next: NextFunction) {
   if (err instanceof AppError) {
-    res.status(err.statusCode).json({ error: err.message });
+    res.status(err.statusCode).json({ error: err.message })
   } else {
-    res.status(500).json({ error: "Internal error" });
+    res.status(500).json({ error: "Internal error" })
   }
 }
 ```
@@ -91,16 +82,16 @@ function errorHandler(
 ```typescript
 // ❌ MAUVAIS : mutations
 interface User {
-  name: string;
+  name: string
 }
 
 function updateName(user: User, name: string) {
-  user.name = name; // Mutation !
+  user.name = name // Mutation !
 }
 
 // ✅ BON : immutabilité
 function updateName(user: Readonly<User>, name: string): User {
-  return { ...user, name };
+  return { ...user, name }
 }
 ```
 
@@ -112,16 +103,16 @@ function getCity(user: User | null): string {
   if (user !== null) {
     if (user.address !== undefined) {
       if (user.address.city !== undefined) {
-        return user.address.city;
+        return user.address.city
       }
     }
   }
-  return "Unknown";
+  return "Unknown"
 }
 
 // ✅ ÉLÉGANT
 function getCity(user: User | null): string {
-  return user?.address?.city ?? "Unknown";
+  return user?.address?.city ?? "Unknown"
 }
 ```
 
@@ -129,37 +120,37 @@ function getCity(user: User | null): string {
 
 ```typescript
 // Sans const assertion
-const colors = ["red", "green", "blue"]; // string[]
+const colors = ["red", "green", "blue"] // string[]
 
 // Avec const assertion
-const colors = ["red", "green", "blue"] as const;
+const colors = ["red", "green", "blue"] as const
 // readonly ["red", "green", "blue"]
 
 // Créer des types
-type Color = (typeof colors)[number]; // "red" | "green" | "blue"
+type Color = (typeof colors)[number] // "red" | "green" | "blue"
 ```
 
 ## 8. Builder Pattern type-safe
 
 ```typescript
 class QueryBuilder<T> {
-  private filters: Partial<T> = {};
-  private sortField?: keyof T;
-  private limitValue?: number;
+  private filters: Partial<T> = {}
+  private sortField?: keyof T
+  private limitValue?: number
 
   where(field: keyof T, value: T[keyof T]): this {
-    this.filters[field] = value;
-    return this;
+    this.filters[field] = value
+    return this
   }
 
   sort(field: keyof T): this {
-    this.sortField = field;
-    return this;
+    this.sortField = field
+    return this
   }
 
   limit(value: number): this {
-    this.limitValue = value;
-    return this;
+    this.limitValue = value
+    return this
   }
 
   build() {
@@ -167,24 +158,20 @@ class QueryBuilder<T> {
       filters: this.filters,
       sort: this.sortField,
       limit: this.limitValue,
-    };
+    }
   }
 }
 
 // Utilisation
 interface User {
-  name: string;
-  age: number;
+  name: string
+  age: number
 }
 
-const query = new QueryBuilder<User>()
-  .where("name", "Alice")
-  .sort("age")
-  .limit(10)
-  .build();
+const query = new QueryBuilder<User>().where("name", "Alice").sort("age").limit(10).build()
 
 // ❌ Erreur : 'invalid' n'existe pas
-const invalid = new QueryBuilder<User>().where("invalid", "value");
+const invalid = new QueryBuilder<User>().where("invalid", "value")
 ```
 
 ## 9. API Client générique
@@ -193,87 +180,84 @@ const invalid = new QueryBuilder<User>().where("invalid", "value");
 class ApiClient {
   constructor(private baseUrl: string) {}
 
-  private async request<T>(
-    endpoint: string,
-    options: RequestInit = {}
-  ): Promise<T> {
+  private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const response = await fetch(`${this.baseUrl}${endpoint}`, {
       ...options,
       headers: {
         "Content-Type": "application/json",
         ...options.headers,
       },
-    });
+    })
 
     if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+      throw new Error(`HTTP ${response.status}`)
     }
 
-    return response.json();
+    return response.json()
   }
 
   async get<T>(endpoint: string): Promise<T> {
-    return this.request<T>(endpoint, { method: "GET" });
+    return this.request<T>(endpoint, { method: "GET" })
   }
 
   async post<T, B>(endpoint: string, body: B): Promise<T> {
     return this.request<T>(endpoint, {
       method: "POST",
       body: JSON.stringify(body),
-    });
+    })
   }
 
   async put<T, B>(endpoint: string, body: B): Promise<T> {
     return this.request<T>(endpoint, {
       method: "PUT",
       body: JSON.stringify(body),
-    });
+    })
   }
 
   async delete<T>(endpoint: string): Promise<T> {
-    return this.request<T>(endpoint, { method: "DELETE" });
+    return this.request<T>(endpoint, { method: "DELETE" })
   }
 }
 
 // Utilisation type-safe
-const api = new ApiClient("https://api.example.com");
+const api = new ApiClient("https://api.example.com")
 
 interface User {
-  id: string;
-  name: string;
+  id: string
+  name: string
 }
 
-const user = await api.get<User>("/users/123");
-console.log(user.name); // ✅ TypeScript connaît le type
+const user = await api.get<User>("/users/123")
+console.log(user.name) // ✅ TypeScript connaît le type
 ```
 
 ## 10. Factory Pattern
 
 ```typescript
 interface Product {
-  id: string;
-  name: string;
-  price: number;
+  id: string
+  name: string
+  price: number
 }
 
 class ProductFactory {
-  private static idCounter = 0;
+  private static idCounter = 0
 
   static create(name: string, price: number): Product {
     return {
       id: `PROD-${++this.idCounter}`,
       name,
       price,
-    };
+    }
   }
 
   static createMultiple(items: Array<Omit<Product, "id">>): Product[] {
-    return items.map((item) => this.create(item.name, item.price));
+    return items.map((item) => this.create(item.name, item.price))
   }
 }
 
 const products = ProductFactory.createMultiple([
   { name: "Laptop", price: 999 },
   { name: "Mouse", price: 25 },
-]);
+])
 ```

@@ -1,3 +1,4 @@
+# 🔟 Configuration tsconfig.json ⭐
 
 Le fichier `tsconfig.json` est le **cœur** de votre projet TypeScript. Une mauvaise configuration = faux sentiment de sécurité.
 
@@ -68,13 +69,13 @@ Le fichier `tsconfig.json` est le **cœur** de votre projet TypeScript. Une mauv
 // ❌ Sans noImplicitAny
 function greet(name) {
   // name est any implicite 😱
-  return "Hello " + name;
+  return "Hello " + name
 }
 
 // ✅ Avec noImplicitAny
 function greet(name: string) {
   // Type explicite obligatoire
-  return "Hello " + name;
+  return "Hello " + name
 }
 ```
 
@@ -82,11 +83,11 @@ function greet(name: string) {
 
 ```typescript
 // ❌ Sans strictNullChecks
-let name: string = null; // Pas d'erreur 😱
+let name: string = null // Pas d'erreur 😱
 
 // ✅ Avec strictNullChecks
-let name: string = null; // ❌ Erreur
-let nullableName: string | null = null; // ✅ Explicite
+let name: string = null // ❌ Erreur
+let nullableName: string | null = null // ✅ Explicite
 ```
 
 **⚠️ RÈGLE D'OR : Toujours `"strict": true` dans un nouveau projet !**
@@ -136,13 +137,13 @@ let nullableName: string | null = null; // ✅ Explicite
 **Avant :**
 
 ```typescript
-import { User } from "../../../models/User";
+import { User } from "../../../models/User"
 ```
 
 **Après :**
 
 ```typescript
-import { User } from "@models/User";
+import { User } from "@models/User"
 ```
 
 ## Output et Source Maps

@@ -1,3 +1,4 @@
+# 1️⃣2️⃣ TypeScript avec Node.js et Express
 
 ## Setup initial
 
@@ -60,29 +61,29 @@ my-api/
 
 ```typescript
 // src/index.ts
-import express, { Express, Request, Response, NextFunction } from "express";
+import express, { Express, Request, Response, NextFunction } from "express"
 
-const app: Express = express();
-const PORT = process.env.PORT || 3000;
+const app: Express = express()
+const PORT = process.env.PORT || 3000
 
-app.use(express.json());
+app.use(express.json())
 
 app.get("/health", (req: Request, res: Response) => {
   res.json({
     status: "ok",
     timestamp: new Date(),
-  });
-});
+  })
+})
 
 // Error handler
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ error: err.message });
-});
+  console.error(err.stack)
+  res.status(500).json({ error: err.message })
+})
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server on http://localhost:${PORT}`);
-});
+  console.log(`🚀 Server on http://localhost:${PORT}`)
+})
 ```
 
 ## DTOs : Data Transfer Objects
@@ -92,23 +93,23 @@ app.listen(PORT, () => {
 
 // Pour créer
 export interface CreateUserDto {
-  name: string;
-  email: string;
-  password: string;
+  name: string
+  email: string
+  password: string
 }
 
 // Pour mettre à jour
 export interface UpdateUserDto {
-  name?: string;
-  email?: string;
+  name?: string
+  email?: string
 }
 
 // Pour répondre (sans password)
 export interface UserResponseDto {
-  id: string;
-  name: string;
-  email: string;
-  createdAt: Date;
+  id: string
+  name: string
+  email: string
+  createdAt: Date
 }
 ```
 
@@ -116,54 +117,50 @@ export interface UserResponseDto {
 
 ```typescript
 // src/controllers/userController.ts
-import { Request, Response, NextFunction } from "express";
-import { CreateUserDto, UpdateUserDto } from "@/types/dtos/user.dto";
+import { Request, Response, NextFunction } from "express"
+import { CreateUserDto, UpdateUserDto } from "@/types/dtos/user.dto"
 
 export class UserController {
-  async getUsers(
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ): Promise<void> {
+  async getUsers(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
-      const users = await this.userService.findAll();
-      res.json({ success: true, data: users });
+      const users = await this.userService.findAll()
+      res.json({ success: true, data: users })
     } catch (error) {
-      next(error);
+      next(error)
     }
   }
 
   async getUserById(
     req: Request<{ id: string }>,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> {
     try {
-      const { id } = req.params;
-      const user = await this.userService.findById(id);
+      const { id } = req.params
+      const user = await this.userService.findById(id)
 
       if (!user) {
-        res.status(404).json({ error: "User not found" });
-        return;
+        res.status(404).json({ error: "User not found" })
+        return
       }
 
-      res.json({ success: true, data: user });
+      res.json({ success: true, data: user })
     } catch (error) {
-      next(error);
+      next(error)
     }
   }
 
   async createUser(
     req: Request<{}, {}, CreateUserDto>,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> {
     try {
-      const userData: CreateUserDto = req.body;
-      const user = await this.userService.create(userData);
-      res.status(201).json({ success: true, data: user });
+      const userData: CreateUserDto = req.body
+      const user = await this.userService.create(userData)
+      res.status(201).json({ success: true, data: user })
     } catch (error) {
-      next(error);
+      next(error)
     }
   }
 }
@@ -175,14 +172,14 @@ export class UserController {
 
 ```typescript
 // src/middlewares/auth.ts
-import { Request, Response, NextFunction } from "express";
-import { User } from "@/types/dtos/user.dto";
+import { Request, Response, NextFunction } from "express"
+import { User } from "@/types/dtos/user.dto"
 
 // Augmenter Express Request
 declare global {
   namespace Express {
     interface Request {
-      user?: User;
+      user?: User
     }
   }
 }
@@ -190,45 +187,45 @@ declare global {
 export const authMiddleware = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ): Promise<void> => {
   try {
-    const token = req.headers.authorization?.split(" ")[1];
+    const token = req.headers.authorization?.split(" ")[1]
 
     if (!token) {
-      res.status(401).json({ error: "No token" });
-      return;
+      res.status(401).json({ error: "No token" })
+      return
     }
 
-    const user = await verifyToken(token);
-    req.user = user;
+    const user = await verifyToken(token)
+    req.user = user
 
-    next();
+    next()
   } catch (error) {
-    res.status(401).json({ error: "Invalid token" });
+    res.status(401).json({ error: "Invalid token" })
   }
-};
+}
 ```
 
 ## Routes typées
 
 ```typescript
 // src/routes/userRoutes.ts
-import { Router } from "express";
-import { UserController } from "@/controllers/userController";
-import { authMiddleware } from "@/middlewares/auth";
+import { Router } from "express"
+import { UserController } from "@/controllers/userController"
+import { authMiddleware } from "@/middlewares/auth"
 
-const router: Router = Router();
-const controller = new UserController();
+const router: Router = Router()
+const controller = new UserController()
 
-router.get("/", controller.getUsers.bind(controller));
-router.get("/:id", controller.getUserById.bind(controller));
-router.post("/", controller.createUser.bind(controller));
+router.get("/", controller.getUsers.bind(controller))
+router.get("/:id", controller.getUserById.bind(controller))
+router.post("/", controller.createUser.bind(controller))
 
 // Route protégée
 router.get("/profile", authMiddleware, (req, res) => {
-  res.json({ data: req.user }); // req.user est typé !
-});
+  res.json({ data: req.user }) // req.user est typé !
+})
 
-export default router;
+export default router
 ```
