@@ -1,4 +1,7 @@
-# 1️⃣ Introduction à TypeScript
+---
+title: "1️⃣ Introduction à TypeScript"
+description: "Bases, objectifs et bénéfices de TypeScript"
+---
 
 ## Qu'est-ce que TypeScript ?
 
