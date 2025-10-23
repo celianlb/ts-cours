@@ -1,5 +1,5 @@
 ---
-title: "1️⃣4️⃣ Bonnes pratiques & Patterns"
+title: "14 - Bonnes pratiques & Patterns"
 description: "Découvre les meilleures pratiques et les design patterns recommandés pour écrire un code TypeScript propre, maintenable et efficace."
 ---
 

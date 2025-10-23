@@ -1,5 +1,5 @@
 ---
-title: "🔟 Configuration tsconfig.json"
+title: "10 - Configuration tsconfig.json"
 description: "Découvre le rôle du fichier tsconfig.json et comment le configurer pour compiler, optimiser et structurer ton projet TypeScript."
 ---
 

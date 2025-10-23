@@ -1,5 +1,5 @@
 ---
-title: "1️⃣ Introduction à TypeScript"
+title: "01 - Introduction à TypeScript"
 description: "Bases, objectifs et bénéfices de TypeScript"
 ---
 

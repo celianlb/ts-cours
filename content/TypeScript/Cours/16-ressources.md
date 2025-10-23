@@ -1,5 +1,5 @@
 ---
-title: "1️⃣6️⃣ Ressources"
+title: "16 - Ressources"
 description: "Liste de ressources, documentations officielles et outils pour aller plus loin dans ton apprentissage de TypeScript."
 ---
 

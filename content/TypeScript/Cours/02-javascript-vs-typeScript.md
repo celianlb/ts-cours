@@ -1,5 +1,5 @@
 ---
-title: "2️⃣ JavaScript vs TypeScript"
+title: "02 - JavaScript vs TypeScript"
 description: "Découvre les différences majeures entre JavaScript et TypeScript, leurs avantages respectifs et pourquoi passer de l’un à l’autre."
 ---
 

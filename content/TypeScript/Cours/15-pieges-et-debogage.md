@@ -1,5 +1,5 @@
 ---
-title: "1️⃣5️⃣ Pièges et débogage"
+title: "15 - Pièges et débogage"
 description: "Identifie les pièges courants en TypeScript et apprends à utiliser les outils de débogage pour corriger rapidement ton code."
 ---
 

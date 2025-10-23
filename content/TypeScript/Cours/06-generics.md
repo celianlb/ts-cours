@@ -1,5 +1,5 @@
 ---
-title: "6️⃣ Generics"
+title: "06 - Generics"
 description: "Découvre la puissance des types génériques en TypeScript pour écrire des fonctions et composants réutilisables et sûrs."
 ---
 

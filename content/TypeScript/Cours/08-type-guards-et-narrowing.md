@@ -1,5 +1,5 @@
 ---
-title: "8️⃣ Type Guards et Narrowing"
+title: "08 - Type Guards et Narrowing"
 description: "Apprends à affiner les types à l’exécution grâce aux Type Guards et au narrowing pour éviter les erreurs de typage dynamiques."
 ---
 

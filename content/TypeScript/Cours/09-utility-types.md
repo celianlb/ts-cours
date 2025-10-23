@@ -1,5 +1,5 @@
 ---
-title: "9️⃣ Utility Types"
+title: "09 - Utility Types"
 description: "Explore les Utility Types intégrés à TypeScript comme Partial, Pick, Omit et Record pour manipuler tes types efficacement."
 ---
 

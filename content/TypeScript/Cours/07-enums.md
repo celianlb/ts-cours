@@ -1,5 +1,5 @@
 ---
-title: "7️⃣ Enums"
+title: "07 - Enums"
 description: "Apprends à utiliser les énumérations pour gérer des ensembles de constantes lisibles et maintenables dans ton code TypeScript."
 ---
 

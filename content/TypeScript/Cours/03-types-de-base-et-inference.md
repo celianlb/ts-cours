@@ -1,5 +1,5 @@
 ---
-title: "3️⃣ Types de base et inférence"
+title: "03 - Types de base et inférence"
 description: "Apprends à typer tes variables en TypeScript avec les types primitifs, l’inférence automatique et les bonnes pratiques de typage."
 ---
 

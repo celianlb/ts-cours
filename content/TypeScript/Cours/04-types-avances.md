@@ -1,5 +1,5 @@
 ---
-title: "4️⃣ Types avancés"
+title: "04 - Types avancés"
 description: "Maîtrise les types avancés : unions, intersections, types conditionnels et utilitaires pour écrire du code plus robuste."
 ---
 

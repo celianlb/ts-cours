@@ -1,5 +1,5 @@
 ---
-title: "Table des matières"
+title: "00 - Table des matières"
 ---
 
 1. Introduction à TypeScript

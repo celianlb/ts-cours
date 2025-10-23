@@ -1,5 +1,5 @@
 ---
-title: "5️⃣ Interfaces et Types"
+title: "05 - Interfaces et Types"
 description: "Comprends la différence entre interfaces et alias de types, et apprends à structurer proprement tes objets et fonctions."
 ---
 
