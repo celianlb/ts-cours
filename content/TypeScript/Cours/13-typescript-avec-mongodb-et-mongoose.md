@@ -1,4 +1,7 @@
-# 1️⃣3️⃣ TypeScript avec MongoDB et Mongoose
+---
+title: "1️⃣3️⃣ TypeScript avec MongoDB et Mongoose"
+description: "Connecte ton projet TypeScript à MongoDB avec Mongoose et définis des schémas typés pour fiabiliser ton accès aux données."
+---
 
 ## Installation
 

@@ -1,4 +1,7 @@
-# 8️⃣ Type Guards et Narrowing
+---
+title: "8️⃣ Type Guards et Narrowing"
+description: "Apprends à affiner les types à l’exécution grâce aux Type Guards et au narrowing pour éviter les erreurs de typage dynamiques."
+---
 
 Le **Narrowing** est le processus par lequel TypeScript affine un type général vers un type plus spécifique.
 

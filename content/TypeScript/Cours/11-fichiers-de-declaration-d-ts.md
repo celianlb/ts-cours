@@ -1,4 +1,7 @@
-# 1️⃣1️⃣ Fichiers de déclaration (.d.ts)
+---
+title: "1️⃣1️⃣ Fichiers de déclaration (.d.ts)"
+description: "Apprends à créer et utiliser des fichiers de déclaration pour typer des bibliothèques externes et améliorer l’autocomplétion."
+---
 
 Les **declaration files** (`.d.ts`) contiennent uniquement des types, pas d'implémentation.
 

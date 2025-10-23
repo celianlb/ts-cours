@@ -1,4 +1,7 @@
-# 🔟 Configuration tsconfig.json ⭐
+---
+title: "🔟 Configuration tsconfig.json"
+description: "Découvre le rôle du fichier tsconfig.json et comment le configurer pour compiler, optimiser et structurer ton projet TypeScript."
+---
 
 Le fichier `tsconfig.json` est le **cœur** de votre projet TypeScript. Une mauvaise configuration = faux sentiment de sécurité.
 

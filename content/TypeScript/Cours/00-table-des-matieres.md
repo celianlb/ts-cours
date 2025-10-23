@@ -1,3 +1,6 @@
+---
+title: "Table des matières"
+---
 
 1. Introduction à TypeScript
 2. JavaScript vs TypeScript

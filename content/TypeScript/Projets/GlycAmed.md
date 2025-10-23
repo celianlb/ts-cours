@@ -1,4 +1,7 @@
-# Projet : GlycAmed
+---
+title: "GlycAmed"
+description: "TypeScript + MongoDB & Mongoose + JWT"
+---
 
 **Durée totale : 2 jours + Maison**  
 **Mode : Binôme**  

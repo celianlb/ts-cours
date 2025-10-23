@@ -1,4 +1,7 @@
-# 7️⃣ Enums
+---
+title: "7️⃣ Enums"
+description: "Apprends à utiliser les énumérations pour gérer des ensembles de constantes lisibles et maintenables dans ton code TypeScript."
+---
 
 Les **Enums** définissent un ensemble de constantes nommées.
 

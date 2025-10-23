@@ -1,4 +1,7 @@
-# 6️⃣ Generics
+---
+title: "6️⃣ Generics"
+description: "Découvre la puissance des types génériques en TypeScript pour écrire des fonctions et composants réutilisables et sûrs."
+---
 
 Les **Generics** permettent de créer des composants réutilisables qui fonctionnent avec plusieurs types.
 

@@ -1,4 +1,7 @@
-# 📚 Ressources
+---
+title: "1️⃣6️⃣ Ressources"
+description: "Liste de ressources, documentations officielles et outils pour aller plus loin dans ton apprentissage de TypeScript."
+---
 
 ## Documentation officielle
 

@@ -1,4 +1,7 @@
-# 1️⃣2️⃣ TypeScript avec Node.js et Express
+---
+title: "1️⃣2️⃣ TypeScript avec Node.js et Express"
+description: "Implémente TypeScript dans un projet Node.js et Express pour sécuriser ton backend avec un typage strict et clair."
+---
 
 ## Setup initial
 

@@ -1,4 +1,7 @@
-## Pièges à éviter
+---
+title: "1️⃣5️⃣ Pièges et débogage"
+description: "Identifie les pièges courants en TypeScript et apprends à utiliser les outils de débogage pour corriger rapidement ton code."
+---
 
 ❌ **Ne pas utiliser `any`** : Chaque `any` = dette technique
 
@@ -16,7 +19,6 @@
 
 ❌ **Mauvais paths** : Vérifiez les imports avec les alias @
 
-  
 ## Astuces gain de temps
 
 ✅ **Définissez les types en premier**, codez ensuite
@@ -32,7 +34,6 @@
 ✅ **Copiez le tsconfig** de la présentation
 
 ✅ **Créez des snippets** pour les patterns répétitifs
-
 
 ## En cas de blocage
 

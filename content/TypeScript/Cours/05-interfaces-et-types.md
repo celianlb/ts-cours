@@ -1,4 +1,7 @@
-# 5️⃣ Interfaces et Types
+---
+title: "5️⃣ Interfaces et Types"
+description: "Comprends la différence entre interfaces et alias de types, et apprends à structurer proprement tes objets et fonctions."
+---
 
 Les **Interfaces** et **Type Aliases** permettent de définir la forme (shape) d'un objet.
 
