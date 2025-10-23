@@ -1,10 +1,8 @@
-# Piscine TypeScript - Master 1
+# Projet : GlycAmed
 
-## Projet : GlycAmed
-
-**Durée totale : 2 jours (7-8h par jour)**  
-**Mode : Individuel**  
-**Rendu : Repository Git**
+**Durée totale : 2 jours + Maison**  
+**Mode : Binôme**  
+**Rendu : Repository Git + Démo live**
 
 ---
 
@@ -405,13 +403,11 @@ docker-compose up
 - [x] Authentification JWT
 - [x] Ajout de consommation
 - [x] Dashboard avec jauges
-      [... liste complète ...]
 
-````
-
-### 3. Application fonctionnelle
+### Application fonctionnelle
 
 **L'application doit :**
+
 - Démarrer avec `docker-compose up`
 - Être entièrement fonctionnelle
 - Permettre de :
@@ -426,16 +422,16 @@ docker-compose up
 
 ## 🎯 Critères d'évaluation (sur 20)
 
-| Critère | Points | Détails |
-|---------|--------|---------|
-| **Configuration TypeScript stricte** | /3 | `strict: true`, pas de `any`, types cohérents |
-| **Architecture backend** | /3 | Séparation des responsabilités, organisation claire |
-| **Modèles Mongoose typés** | /3 | Interfaces complètes, validations, méthodes |
-| **API REST complète** | /3 | Tous les endpoints, gestion d'erreurs, JWT |
-| **Intégration API Yuka** | /2 | Récupération produits, parsing, gestion d'erreurs |
-| **Docker fonctionnel** | /2 | docker-compose lance toute l'app correctement |
-| **Frontend connecté** | /2 | Interface fonctionnelle, appels API, affichage données |
-| **Qualité du code** | /2 | Lisibilité, bonnes pratiques, README complet |
+| Critère                              | Points | Détails                                                |
+| ------------------------------------ | ------ | ------------------------------------------------------ |
+| **Configuration TypeScript stricte** | /3     | `strict: true`, pas de `any`, types cohérents          |
+| **Architecture backend**             | /3     | Séparation des responsabilités, organisation claire    |
+| **Modèles Mongoose typés**           | /3     | Interfaces complètes, validations, méthodes            |
+| **API REST complète**                | /3     | Tous les endpoints, gestion d'erreurs, JWT             |
+| **Intégration API Yuka**             | /2     | Récupération produits, parsing, gestion d'erreurs      |
+| **Docker fonctionnel**               | /2     | docker-compose lance toute l'app correctement          |
+| **Frontend connecté**                | /2     | Interface fonctionnelle, appels API, affichage données |
+| **Qualité du code**                  | /2     | Lisibilité, bonnes pratiques, README complet           |
 
 ---
 
@@ -510,27 +506,31 @@ docker-compose up
 ## 💡 Conseils et astuces
 
 ### Commencez simple
+
 - Ne cherchez pas la perfection immédiatement
 - Fonctionnel > Parfait
 - Itérez progressivement
 
 ### TypeScript
+
 - Définissez vos types AVANT d'écrire le code
 - Utilisez l'autocomplétion au maximum
 - Lisez attentivement les erreurs du compilateur
 
 ### API Yuka
+
 - Testez d'abord l'API avec Postman/Thunder Client
 - Gérez les cas où le produit n'existe pas
 - Cachez les produits déjà récupérés en base
 
 ### Calculs de nutriments
+
 ```typescript
 // Exemple : Red Bull 250ml
 // API retourne : sugars_100g = 11
 // Quantité consommée : 250ml
 // Calcul : (11 * 250) / 100 = 27.5g de sucre
-````
+```
 
 ### MongoDB Aggregations
 
