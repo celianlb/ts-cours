@@ -3,8 +3,6 @@ title: "00 - Table des matières"
 description: "Plan général du cours sur les fondamentaux de React.js et TypeScript"
 ---
 
-# 📚 Table des matières — Les Fondamentaux de React.js + TypeScript
-
 1. [Introduction à React](01-Introduction-a-React.md)
 2. [Les bases de React](02-Les-bases-de-React.md)
 3. [Composants et Props](03-Composants-et-Props.md)

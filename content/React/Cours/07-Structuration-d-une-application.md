@@ -3,8 +3,6 @@ title: "07 - Structuration d’une application React"
 description: "Organisation des fichiers, conventions, communication et patterns réutilisables"
 ---
 
-# 🏗️ Structuration d’une application React
-
 ## 7.1 Organisation des dossiers 📁
 
 ```
@@ -35,13 +33,13 @@ src/
 ```tsx
 function useLocalStorage<T>(key: string, initial: T) {
   const [value, setValue] = React.useState<T>(() => {
-    const raw = localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as T) : initial;
-  });
+    const raw = localStorage.getItem(key)
+    return raw ? (JSON.parse(raw) as T) : initial
+  })
   React.useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
-  return [value, setValue] as const;
+    localStorage.setItem(key, JSON.stringify(value))
+  }, [key, value])
+  return [value, setValue] as const
 }
 ```
 
@@ -51,17 +49,17 @@ function useLocalStorage<T>(key: string, initial: T) {
 - États d’erreur **explicites** pour les requêtes.
 
 ```tsx
-type Data = { id: string; name: string };
+type Data = { id: string; name: string }
 
 function DataView({ data }: { data: Data[] }) {
-  if (!data.length) return <p>ℹ️ Aucune donnée</p>;
+  if (!data.length) return <p>ℹ️ Aucune donnée</p>
   return (
     <ul>
       {data.map((d) => (
         <li key={d.id}>{d.name}</li>
       ))}
     </ul>
-  );
+  )
 }
 ```
 

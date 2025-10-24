@@ -3,8 +3,6 @@ title: "01 - Introduction à React"
 description: "Découverte de React, sa philosophie, et ses concepts clés"
 ---
 
-# 🚀 Introduction à React
-
 React est une **bibliothèque** JavaScript pour construire des **interfaces utilisateur** à partir de **composants**. Elle privilégie une approche **déclarative** (décrire le “quoi” plutôt que le “comment”) et **composable** (assembler de petits composants réutilisables).
 
 ![React VDOM](./img/react-vdom.png)
@@ -31,7 +29,7 @@ JSX est une **extension de syntaxe** qui permet d’écrire du HTML dans du Java
 ```tsx
 // Exemple simple
 export function Hello({ name }: { name: string }) {
-  return <h1>👋 Bonjour {name} !</h1>;
+  return <h1>👋 Bonjour {name} !</h1>
 }
 ```
 
@@ -44,14 +42,14 @@ export function Hello({ name }: { name: string }) {
 - Utilisation de **types utilitaires** (Partial, Pick, Record…) et des **Generics**.
 
 ```tsx
-type User = { id: string; username: string; admin?: boolean };
+type User = { id: string; username: string; admin?: boolean }
 
 export function UserBadge({ user }: { user: User }) {
   return (
     <span>
       {user.admin ? "⭐️" : "👤"} {user.username}
     </span>
-  );
+  )
 }
 ```
 
@@ -68,7 +66,7 @@ export default function App() {
       <h1>🚀 React + TS</h1>
       <p>Bienvenue dans votre première app.</p>
     </main>
-  );
+  )
 }
 ```
 

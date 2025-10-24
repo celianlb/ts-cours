@@ -3,21 +3,19 @@ title: "04 - Gestion de l’état (useState)"
 description: "État local, immuabilité, lifting state et formulaires contrôlés"
 ---
 
-# 🧪 Gestion de l’état (useState)
-
 ## 4.1 useState : le cœur réactif ❤️
 
 ```tsx
-import { useState } from "react";
+import { useState } from "react"
 
 export default function Counter() {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState<number>(0)
   return (
     <div>
       <p>🔢 Compteur : {count}</p>
       <button onClick={() => setCount((c) => c + 1)}>➕ Incrémenter</button>
     </div>
-  );
+  )
 }
 ```
 
@@ -28,9 +26,9 @@ export default function Counter() {
 Toujours **créer de nouveaux objets/tableaux** pour déclencher un nouveau rendu.
 
 ```tsx
-const [todos, setTodos] = useState<string[]>([]);
+const [todos, setTodos] = useState<string[]>([])
 function addTodo(item: string) {
-  setTodos((prev) => [...prev, item]); // ✅
+  setTodos((prev) => [...prev, item]) // ✅
 }
 ```
 
@@ -43,8 +41,8 @@ function SearchBox({
   query,
   onQueryChange,
 }: {
-  query: string;
-  onQueryChange: (q: string) => void;
+  query: string
+  onQueryChange: (q: string) => void
 }) {
   return (
     <input
@@ -52,14 +50,12 @@ function SearchBox({
       onChange={(e) => onQueryChange(e.target.value)}
       placeholder="🔎 Rechercher..."
     />
-  );
+  )
 }
 
 function SearchableList({ items }: { items: string[] }) {
-  const [query, setQuery] = useState("");
-  const filtered = items.filter((i) =>
-    i.toLowerCase().includes(query.toLowerCase())
-  );
+  const [query, setQuery] = useState("")
+  const filtered = items.filter((i) => i.toLowerCase().includes(query.toLowerCase()))
   return (
     <div>
       <SearchBox query={query} onQueryChange={setQuery} />
@@ -69,22 +65,22 @@ function SearchableList({ items }: { items: string[] }) {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 ```
 
 ## 4.4 Formulaires contrôlés 📝
 
 ```tsx
-type FormData = { email: string; password: string };
+type FormData = { email: string; password: string }
 
 export function LoginForm() {
-  const [form, setForm] = useState<FormData>({ email: "", password: "" });
+  const [form, setForm] = useState<FormData>({ email: "", password: "" })
   return (
     <form
       onSubmit={(e) => {
-        e.preventDefault();
-        alert(JSON.stringify(form));
+        e.preventDefault()
+        alert(JSON.stringify(form))
       }}
     >
       <input
@@ -101,29 +97,29 @@ export function LoginForm() {
       />
       <button>Se connecter</button>
     </form>
-  );
+  )
 }
 ```
 
 ## 4.5 useReducer : états complexes 🧩
 
 ```tsx
-type State = { count: number };
-type Action = { type: "inc" } | { type: "dec" } | { type: "reset" };
+type State = { count: number }
+type Action = { type: "inc" } | { type: "dec" } | { type: "reset" }
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "inc":
-      return { count: state.count + 1 };
+      return { count: state.count + 1 }
     case "dec":
-      return { count: state.count - 1 };
+      return { count: state.count - 1 }
     case "reset":
-      return { count: 0 };
+      return { count: 0 }
   }
 }
 
 export function CounterPro() {
-  const [state, dispatch] = React.useReducer(reducer, { count: 0 });
+  const [state, dispatch] = React.useReducer(reducer, { count: 0 })
   return (
     <div>
       <p>🧮 {state.count}</p>
@@ -131,7 +127,7 @@ export function CounterPro() {
       <button onClick={() => dispatch({ type: "inc" })}>➕</button>
       <button onClick={() => dispatch({ type: "reset" })}>♻️</button>
     </div>
-  );
+  )
 }
 ```
 

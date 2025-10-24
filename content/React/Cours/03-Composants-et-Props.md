@@ -3,25 +3,15 @@ title: "03 - Composants et Props"
 description: "Communication unidirectionnelle, validation et patterns de composition"
 ---
 
-# 🔗 Composants et Props
-
 ## 3.1 Flux de données unidirectionnel ↘️
 
 Les données vont **du parent vers l’enfant** via les **props**.
 
 ```tsx
-type AvatarProps = { src: string; size?: number; alt?: string };
+type AvatarProps = { src: string; size?: number; alt?: string }
 
 export function Avatar({ src, size = 40, alt = "avatar" }: AvatarProps) {
-  return (
-    <img
-      src={src}
-      width={size}
-      height={size}
-      alt={alt}
-      style={{ borderRadius: "50%" }}
-    />
-  );
+  return <img src={src} width={size} height={size} alt={alt} style={{ borderRadius: "50%" }} />
 }
 ```
 
@@ -33,7 +23,7 @@ export function Avatar({ src, size = 40, alt = "avatar" }: AvatarProps) {
 ## 3.3 Children et composition 🧩
 
 ```tsx
-type PanelProps = { title: string; children: React.ReactNode };
+type PanelProps = { title: string; children: React.ReactNode }
 
 export function Panel({ title, children }: PanelProps) {
   return (
@@ -41,7 +31,7 @@ export function Panel({ title, children }: PanelProps) {
       <h2>📦 {title}</h2>
       <div>{children}</div>
     </section>
-  );
+  )
 }
 ```
 
@@ -57,12 +47,12 @@ Alternatives : **contexte** (`useContext`), **state management** (Zustand, Redux
 
 ```tsx
 type ListProps<T> = {
-  items: T[];
-  renderItem: (item: T) => React.ReactNode;
-};
+  items: T[]
+  renderItem: (item: T) => React.ReactNode
+}
 
 export function List<T>({ items, renderItem }: ListProps<T>) {
-  return <ul>{items.map(renderItem)}</ul>;
+  return <ul>{items.map(renderItem)}</ul>
 }
 ```
 
@@ -72,16 +62,16 @@ export function List<T>({ items, renderItem }: ListProps<T>) {
 - Utiliser `React.ComponentProps<typeof Comp>` pour **hériter** des props.
 
 ```tsx
-type InputProps = React.ComponentProps<"input"> & { label: string };
+type InputProps = React.ComponentProps<"input"> & { label: string }
 
 export function LabeledInput({ label, id, ...rest }: InputProps) {
-  const htmlId = id ?? label.toLowerCase().replace(/\s+/g, "-");
+  const htmlId = id ?? label.toLowerCase().replace(/\s+/g, "-")
   return (
     <label htmlFor={htmlId}>
       <span>🏷 {label}</span>
       <input id={htmlId} {...rest} />
     </label>
-  );
+  )
 }
 ```
 

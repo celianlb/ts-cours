@@ -3,8 +3,6 @@ title: "06 - Événements et gestion du DOM"
 description: "Système d’événements, refs, contrôles d’entrée et accès DOM"
 ---
 
-# 🖱️ Événements et gestion du DOM
-
 ## 6.1 Événements synthétiques 🎛️
 
 React normalise les événements pour un comportement **cohérent** entre navigateurs.
@@ -12,23 +10,17 @@ React normalise les événements pour un comportement **cohérent** entre naviga
 ```tsx
 export function Clicker() {
   function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
-    console.log("Position:", e.clientX, e.clientY);
+    console.log("Position:", e.clientX, e.clientY)
   }
-  return <button onClick={handleClick}>👆 Clique-moi</button>;
+  return <button onClick={handleClick}>👆 Clique-moi</button>
 }
 ```
 
 ## 6.2 Transmettre des paramètres 🔧
 
 ```tsx
-export function Remover({
-  onRemove,
-  id,
-}: {
-  onRemove: (id: string) => void;
-  id: string;
-}) {
-  return <button onClick={() => onRemove(id)}>🗑 Supprimer</button>;
+export function Remover({ onRemove, id }: { onRemove: (id: string) => void; id: string }) {
+  return <button onClick={() => onRemove(id)}>🗑 Supprimer</button>
 }
 ```
 
@@ -37,16 +29,16 @@ export function Remover({
 `useRef` permet de conserver des **références mutables** (non réactives).
 
 ```tsx
-import { useRef } from "react";
+import { useRef } from "react"
 
 export function FocusInput() {
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLInputElement>(null)
   return (
     <div>
       <input ref={ref} placeholder="Tape quelque chose…" />
       <button onClick={() => ref.current?.focus()}>🎯 Focus</button>
     </div>
-  );
+  )
 }
 ```
 
@@ -57,18 +49,18 @@ export function FocusInput() {
 
 ```tsx
 export function UncontrolledEmail() {
-  const ref = React.useRef<HTMLInputElement>(null);
+  const ref = React.useRef<HTMLInputElement>(null)
   return (
     <form
       onSubmit={(e) => {
-        e.preventDefault();
-        alert(ref.current?.value);
+        e.preventDefault()
+        alert(ref.current?.value)
       }}
     >
       <input ref={ref} type="email" defaultValue="test@example.com" />
       <button>Envoyer</button>
     </form>
-  );
+  )
 }
 ```
 
@@ -80,13 +72,13 @@ export function LinkLike({ onNavigate }: { onNavigate: () => void }) {
     <a
       href="#"
       onClick={(e) => {
-        e.preventDefault();
-        onNavigate();
+        e.preventDefault()
+        onNavigate()
       }}
     >
       🧭 Naviguer
     </a>
-  );
+  )
 }
 ```
 
