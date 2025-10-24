@@ -7,13 +7,6 @@ import * as Plugin from "./quartz/plugins"
  * See https://quartz.jzhao.xyz/configuration for more information.
  */
 const config: QuartzConfig = {
-  head: {
-    links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" },
-    ],
-  },
   configuration: {
     pageTitle: "Célian Lebacle QG",
     pageTitleSuffix: "",

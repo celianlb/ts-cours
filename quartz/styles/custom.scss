@@ -2,50 +2,44 @@
 
 /* quartz/styles/custom.scss */
 
-/* ------------ PALETTES (défaut = dark) ------------ */
-:root,
-:root[data-theme="dark"],
-html.dark,
-body.dark {
+/* ---------- DARK (défaut) ---------- */
+html:not([data-theme]),
+html[data-theme="dark"] {
   /* base */
   --bg: #0b0f19;
-  --surface: #12182a; /* cartes/panneaux */
+  --surface: #12182a;
   --text: #e8ecf5;
   --muted: #a5b0c2;
   --border: #1e2742;
 
-  /* primaire (dark) */
-  --primary: #3cf054; /* demandé */
+  /* primaire */
+  --primary: #3cf054;
   --primary-600: #25c83f;
-  --primary-700: #1aa233;
 
   /* liens */
   --link: var(--primary);
   --link-hover: #97f7a6;
   --visited: #83d996;
 
-  /* code & sélection */
+  /* divers */
   --code-bg: #0f1526;
   --kbd-bg: #0f1526;
   --selection: rgba(60, 240, 84, 0.25);
 }
 
-/* Light mode : couvre plusieurs variantes d’attributs/classes */
-:root[data-theme="light"],
-html.light,
-body.light {
+/* ---------- LIGHT ---------- */
+html[data-theme="light"] {
   --bg: #ffffff;
   --surface: #f7fafc;
   --text: #0f172a;
   --muted: #475569;
   --border: #e5e7eb;
 
-  --primary: #fcad44; /* demandé */
+  --primary: #fcad44;
   --primary-600: #e2902d;
-  --primary-700: #c77a22;
 
   --link: var(--primary);
-  --link-hover: #b45309; /* plus sombre pour accessibilité */
+  --link-hover: #b45309; /* hover plus sombre pour l’accessibilité */
   --visited: #7c2d12;
 
   --code-bg: #f7f7fa;
@@ -53,7 +47,7 @@ body.light {
   --selection: rgba(252, 173, 68, 0.22);
 }
 
-/* ------------ BASE ------------ */
+/* ---------- BASE ---------- */
 body {
   background: var(--bg);
   color: var(--text);
@@ -72,10 +66,9 @@ body {
     "Noto Color Emoji";
 }
 
-/* Unifier TOUS les fonds structurels */
+/* Unifier tous les fonds structurels */
 main,
 .page,
-.page > .content,
 .content,
 .article-page,
 .right-sidebar,
@@ -86,7 +79,7 @@ main,
   background: var(--bg) !important;
 }
 
-/* Surfaces (cartes, encarts, blocs markdown) */
+/* Surfaces (cartes, encarts, code, popovers) */
 .card,
 .callout,
 .note,
@@ -115,13 +108,11 @@ h1 {
   font-weight: 800;
 }
 
-/* Liens (uniformes) */
+/* Liens */
 a {
   color: var(--link);
   text-decoration: none;
-  transition:
-    color 0.15s ease,
-    box-shadow 0.15s ease;
+  transition: color 0.15s ease;
 }
 a:hover {
   color: var(--link-hover);
@@ -131,8 +122,7 @@ a:visited {
   color: var(--visited);
 }
 
-/* Table des matières – garder la même couleur pour tous les états,
-   puis survol en primaire */
+/* Table des matières – cohérente */
 .toc a,
 .toc a:link,
 .toc a:visited {
@@ -144,7 +134,7 @@ a:visited {
   color: var(--link);
 }
 
-/* Sidebar / nav */
+/* Sidebar */
 .sidebar {
   background: var(--surface);
   border-right: 1px solid var(--border);
@@ -156,7 +146,7 @@ a:visited {
   color: var(--link);
 }
 
-/* Breadcrumbs, meta */
+/* Breadcrumbs / meta */
 .breadcrumbs a {
   color: var(--muted);
 }
@@ -164,7 +154,7 @@ a:visited {
   color: var(--link);
 }
 
-/* Boutons, tags, pills, badges */
+/* Boutons & tags */
 .button,
 .pill,
 .tag,
@@ -190,13 +180,12 @@ code {
   padding: 0.15rem 0.35rem;
 }
 
-/* <kbd> */
+/* kbd */
 kbd {
   background: var(--kbd-bg);
   border: 1px solid var(--border);
   border-radius: 0.4rem;
   padding: 0.1rem 0.35rem;
-  box-shadow: inset 0 -1px 0 color-mix(in oklab, var(--border), black 10%);
 }
 
 /* Tables */
@@ -213,19 +202,17 @@ thead th {
   background: color-mix(in oklab, var(--surface), white 6%);
 }
 
-/* Sélection de texte */
+/* Sélection & HR */
 ::selection {
   background: var(--selection);
 }
-
-/* HR */
 hr {
   border: none;
   border-top: 1px solid var(--border);
   margin: 2rem 0;
 }
 
-/* Inputs (search, etc.) */
+/* Inputs (recherche, etc.) */
 input,
 select,
 textarea {
