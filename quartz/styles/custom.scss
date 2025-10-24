@@ -2,58 +2,58 @@
 
 /* quartz/styles/custom.scss */
 
-/* ---------- PALETTES ---------- */
-/* Dark = thème par défaut de Quartz ; Light via html.light */
-:root {
-  /* DARK MODE (par défaut) */
+/* ------------ PALETTES (défaut = dark) ------------ */
+:root,
+:root[data-theme="dark"],
+html.dark,
+body.dark {
+  /* base */
   --bg: #0b0f19;
+  --surface: #12182a; /* cartes/panneaux */
   --text: #e8ecf5;
   --muted: #a5b0c2;
-  --card: #12182a;
   --border: #1e2742;
 
-  /* Primaire (dark) */
+  /* primaire (dark) */
   --primary: #3cf054; /* demandé */
   --primary-600: #25c83f;
   --primary-700: #1aa233;
 
-  /* Liens */
+  /* liens */
   --link: var(--primary);
   --link-hover: #97f7a6;
   --visited: #83d996;
 
-  /* Surfaces code & sélection */
+  /* code & sélection */
   --code-bg: #0f1526;
   --kbd-bg: #0f1526;
   --selection: rgba(60, 240, 84, 0.25);
 }
 
-html.light {
-  /* LIGHT MODE */
+/* Light mode : couvre plusieurs variantes d’attributs/classes */
+:root[data-theme="light"],
+html.light,
+body.light {
   --bg: #ffffff;
+  --surface: #f7fafc;
   --text: #0f172a;
   --muted: #475569;
-  --card: #f7fafc;
   --border: #e5e7eb;
 
-  /* Primaire (light) */
   --primary: #fcad44; /* demandé */
   --primary-600: #e2902d;
   --primary-700: #c77a22;
 
-  /* Liens */
   --link: var(--primary);
-  --link-hover: #ffd6a2;
-  --visited: #c0772a;
+  --link-hover: #b45309; /* plus sombre pour accessibilité */
+  --visited: #7c2d12;
 
-  /* Surfaces code & sélection */
   --code-bg: #f7f7fa;
   --kbd-bg: #fff7ed;
   --selection: rgba(252, 173, 68, 0.22);
 }
 
-/* ---------- BASE ---------- */
-
+/* ------------ BASE ------------ */
 body {
   background: var(--bg);
   color: var(--text);
@@ -72,20 +72,32 @@ body {
     "Noto Color Emoji";
 }
 
-/* Liens */
-a {
-  color: var(--link);
-  text-decoration: none;
-  transition:
-    color 0.15s ease,
-    box-shadow 0.15s ease;
+/* Unifier TOUS les fonds structurels */
+main,
+.page,
+.page > .content,
+.content,
+.article-page,
+.right-sidebar,
+.left-sidebar,
+.sidebar,
+.header,
+.footer {
+  background: var(--bg) !important;
 }
-a:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
-}
-a:visited {
-  color: var(--visited);
+
+/* Surfaces (cartes, encarts, blocs markdown) */
+.card,
+.callout,
+.note,
+.admonition,
+blockquote,
+pre,
+code,
+.tippy-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
 }
 
 /* Titres */
@@ -103,15 +115,38 @@ h1 {
   font-weight: 800;
 }
 
-/* Sélection de texte */
-::selection {
-  background: var(--selection);
+/* Liens (uniformes) */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition:
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+a:visited {
+  color: var(--visited);
 }
 
-/* ---------- LAYOUT / NAV ---------- */
+/* Table des matières – garder la même couleur pour tous les états,
+   puis survol en primaire */
+.toc a,
+.toc a:link,
+.toc a:visited {
+  color: var(--muted);
+}
+.toc a:hover,
+.toc a.is-active,
+.toc .active > a {
+  color: var(--link);
+}
 
+/* Sidebar / nav */
 .sidebar {
-  background: var(--card);
+  background: var(--surface);
   border-right: 1px solid var(--border);
 }
 .sidebar a {
@@ -129,26 +164,13 @@ h1 {
   color: var(--link);
 }
 
-/* Cartes, callouts, encarts */
-.card,
-.callout,
-.note,
-.admonition {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 0.8rem;
-}
-.callout {
-  border-left: 4px solid var(--primary);
-}
-
 /* Boutons, tags, pills, badges */
 .button,
 .pill,
 .tag,
 .badge {
   background: var(--primary);
-  color: #0b1021; /* contraste sur les surfaces colorées */
+  color: #0b1021;
   border: 1px solid color-mix(in oklab, var(--primary), black 15%);
   border-radius: 0.6rem;
 }
@@ -159,23 +181,7 @@ h1 {
   background: var(--primary-600);
 }
 
-/* Table des matières */
-.toc a {
-  color: var(--muted);
-}
-.toc a:hover {
-  color: var(--link);
-}
-
-/* ---------- CONTENU ---------- */
-
 /* Code */
-code,
-pre {
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-  border-radius: 0.6rem;
-}
 pre {
   padding: 1rem;
   overflow: auto;
@@ -184,7 +190,7 @@ code {
   padding: 0.15rem 0.35rem;
 }
 
-/* <kbd> pour raccourcis */
+/* <kbd> */
 kbd {
   background: var(--kbd-bg);
   border: 1px solid var(--border);
@@ -204,21 +210,26 @@ td {
   padding: 0.5rem 0.75rem;
 }
 thead th {
-  background: color-mix(in oklab, var(--card), white 6%);
+  background: color-mix(in oklab, var(--surface), white 6%);
 }
 
-/* Règle horizontale */
+/* Sélection de texte */
+::selection {
+  background: var(--selection);
+}
+
+/* HR */
 hr {
   border: none;
   border-top: 1px solid var(--border);
   margin: 2rem 0;
 }
 
-/* Formulaires (recherche, etc.) */
+/* Inputs (search, etc.) */
 input,
 select,
 textarea {
-  background: var(--card);
+  background: var(--surface);
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 0.5rem;
