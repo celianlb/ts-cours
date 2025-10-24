@@ -69,7 +69,7 @@ function DataView({ data }: { data: Data[] }) {
 - **Composants** : avec React Testing Library (rendu, interactions).
 - **E2E** : Playwright/Cypress pour parcours critique.
 
-![alt text](./img/folder-structure.png)
+![alt text](/img/folder-structure.png)
 
 ---
 
