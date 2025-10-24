@@ -27,17 +27,6 @@ Chaque section correspond à une **technologie** ou un **outil** spécifique.
 
 ---
 
-## 📚 Structure du site
-
-Chaque module suit la même logique :
-
-1. Une **introduction** présentant la techno.
-2. Un ensemble de **cours numérotés**.
-3. Des **projets pratiques** ou études de cas.
-4. Des **ressources complémentaires** (liens, docs, schémas, etc.).
-
----
-
 ## 💬 À propos
 
 Ces supports sont conçus pour :
@@ -45,10 +34,6 @@ Ces supports sont conçus pour :
 - des **étudiants en informatique** (BTS, Licence, Master) 🎓
 - des **autodidactes** souhaitant se perfectionner 💻
 
-> 🧭 Objectif : une approche **progressive**, **pédagogique** et **technique**, combinant théorie, pratique et bonnes pratiques d’ingénierie.
-
 ---
 
 Fait avec le ❤️ pour vous
-
-📅 _Dernière mise à jour : {{ date }}_
