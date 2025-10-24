@@ -18,17 +18,12 @@ Chaque section correspond à une **technologie** ou un **outil** spécifique.
 
 ---
 
-## ⚙️ Technologies & Outils
-
 ## 🧭 Navigation rapide
 
 | Catégorie     | Accès                                |
 | ------------- | ------------------------------------ |
 | ⚛️ React      | [Voir le cours](React/index.md)      |
 | 🧩 TypeScript | [Voir le cours](TypeScript/index.md) |
-| 🐋 Docker     | [Voir le cours](Docker/index.md)     |
-| 🌍 WordPress  | [Voir le cours](WordPress/index.md)  |
-| 🧠 No Code    | [Voir le cours](NoCode/index.md)     |
 
 ---
 
