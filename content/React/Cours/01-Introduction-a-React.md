@@ -5,7 +5,7 @@ description: "Découverte de React, sa philosophie, et ses concepts clés"
 
 React est une **bibliothèque** JavaScript pour construire des **interfaces utilisateur** à partir de **composants**. Elle privilégie une approche **déclarative** (décrire le “quoi” plutôt que le “comment”) et **composable** (assembler de petits composants réutilisables).
 
-![React VDOM](./img/react-vdom.png)
+![React VDOM](/static/img/react-vdom.png)
 
 ## 1.1 Pourquoi React ? 🧠
 

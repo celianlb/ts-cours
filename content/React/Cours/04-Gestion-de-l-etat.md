@@ -131,7 +131,7 @@ export function CounterPro() {
 }
 ```
 
-![Use Reducer](./img/usereducer.png)
+![Use Reducer](/static/img/usereducer.png)
 
 ---
 

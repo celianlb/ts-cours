@@ -78,7 +78,7 @@ const value = React.useMemo(() => computeExpensive(data), [data])
 const handleClick = React.useCallback(() => doSomething(value), [value])
 ```
 
-![Lifecycle](./img/lifecycle.png)
+![Lifecycle](/static/img/lifecycle.png)
 
 ---
 

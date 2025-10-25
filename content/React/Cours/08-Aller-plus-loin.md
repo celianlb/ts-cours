@@ -119,7 +119,7 @@ function useDebouncedValue<T>(value: T, delay = 300) {
 }
 ```
 
-![Providers (Auth, Theme) → Consumers](./img/provider.png)
+![Providers (Auth, Theme) → Consumers](/static/img/provider.png)
 
 ---
 

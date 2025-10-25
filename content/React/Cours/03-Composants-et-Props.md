@@ -75,7 +75,7 @@ export function LabeledInput({ label, id, ...rest }: InputProps) {
 }
 ```
 
-![Parent ↔︎ Enfant — Props & Callbacks](./img/parents-children-props-callback.png)
+![Parent ↔︎ Enfant — Props & Callbacks](/static/img/parents-children-props-callback.png)
 
 ---
 
