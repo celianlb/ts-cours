@@ -3,6 +3,8 @@ title: "05 - Cycle de vie et effets (useEffect)"
 description: "Montage, mise à jour, nettoyage ; requêtes, timers et synchronisation"
 ---
 
+![Lifecycle](/static/img/lifecycle.png)
+
 ## 5.1 Quand utiliser useEffect ? 🧐
 
 - **Effets côté client** : requêtes réseau, timers, abonnements.
@@ -77,8 +79,6 @@ export function Posts() {
 const value = React.useMemo(() => computeExpensive(data), [data])
 const handleClick = React.useCallback(() => doSomething(value), [value])
 ```
-
-![Lifecycle](/static/img/lifecycle.png)
 
 ---
 

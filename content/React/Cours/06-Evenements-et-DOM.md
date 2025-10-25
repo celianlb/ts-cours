@@ -3,6 +3,8 @@ title: "06 - Événements et gestion du DOM"
 description: "Système d’événements, refs, contrôles d’entrée et accès DOM"
 ---
 
+![Flux React — Événement → Handler → État → Rendu](/static/img/flux.png)
+
 ## 6.1 Événements synthétiques 🎛️
 
 React normalise les événements pour un comportement **cohérent** entre navigateurs.
@@ -81,8 +83,6 @@ export function LinkLike({ onNavigate }: { onNavigate: () => void }) {
   )
 }
 ```
-
-![Flux React — Événement → Handler → État → Rendu](/static/img/flux.png)
 
 ---
 

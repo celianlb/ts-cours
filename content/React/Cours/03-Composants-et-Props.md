@@ -3,6 +3,8 @@ title: "03 - Composants et Props"
 description: "Communication unidirectionnelle, validation et patterns de composition"
 ---
 
+![Parent ↔︎ Enfant — Props & Callbacks](/static/img/parents-children-props-callback.png)
+
 ## 3.1 Flux de données unidirectionnel ↘️
 
 Les données vont **du parent vers l’enfant** via les **props**.
@@ -74,8 +76,6 @@ export function LabeledInput({ label, id, ...rest }: InputProps) {
   )
 }
 ```
-
-![Parent ↔︎ Enfant — Props & Callbacks](/static/img/parents-children-props-callback.png)
 
 ---
 

@@ -3,6 +3,8 @@ title: "07 - Structuration d’une application React"
 description: "Organisation des fichiers, conventions, communication et patterns réutilisables"
 ---
 
+![Folder structure](/static/img/folder-structure.png)
+
 ## 7.1 Organisation des dossiers 📁
 
 ```
@@ -68,8 +70,6 @@ function DataView({ data }: { data: Data[] }) {
 - **Unitaires** : logique pure, hooks, utils.
 - **Composants** : avec React Testing Library (rendu, interactions).
 - **E2E** : Playwright/Cypress pour parcours critique.
-
-![Folder structure](/static/img/folder-structure.png)
 
 ---
 
