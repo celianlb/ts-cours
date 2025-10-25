@@ -20,7 +20,7 @@ React est une **bibliothèque** JavaScript pour construire des **interfaces util
 - Au changement d’état, React **calcule la différence (diff)** entre l’ancienne et la nouvelle UI et applique **efficacement** les mutations dans le DOM réel (**reconciliation**).
 - ⚠️ **Important** : le Virtual DOM n’est pas magique—les optimisations (memoization, clés stables) restent cruciales.
 
-![Cycle de rendu React — Trigger → Render → Commit](./img/render-cycle.png)
+![Cycle de rendu React — Trigger → Render → Commit](/static/img/render-cycle.png)
 
 ## 1.3 JSX : du sucre syntaxique 🍯
 
