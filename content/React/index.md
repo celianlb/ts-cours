@@ -24,16 +24,16 @@ Tu apprendras ici à :
 
 ## 📘 Table des matières
 
-| #   | Titre                                                                                | Description                             |
-| --- | ------------------------------------------------------------------------------------ | --------------------------------------- |
-| 01  | [Introduction à React](Cours/01-Introduction-a-React.md)                             | Objectifs, philosophie et concepts clés |
-| 02  | [Les bases de React](Cours/02-Les-bases-de-React.md)                                 | JSX, composants fonctionnels, rendu     |
-| 03  | [Composants et Props](Cours/03-Composants-et-Props.md)                               | Communication et réutilisation          |
-| 04  | [Gestion de l’état (useState)](Cours/04-Gestion-de-l-etat.md)                        | Données dynamiques et réactivité        |
-| 05  | [Cycle de vie et effets (useEffect)](Cours/05-Cycle-de-vie-et-UseEffect.md)          | Effets secondaires et nettoyage         |
-| 06  | [Événements et gestion du DOM](Cours/06-Evenements-et-DOM.md)                        | Interaction utilisateur et DOM virtuel  |
-| 07  | [Structuration d’une application React](Cours/07-Structuration-d-une-application.md) | Organisation, hooks, providers          |
-| 08  | [Aller plus loin](Cours/08-Aller-plus-loin.md)                                       | Contexte, router et optimisation        |
+| #   | Titre                                                                                      | Description                             |
+| --- | ------------------------------------------------------------------------------------------ | --------------------------------------- |
+| 01  | [Introduction à React](React/Cours/01-Introduction-a-React.md)                             | Objectifs, philosophie et concepts clés |
+| 02  | [Les bases de React](React/Cours/02-Les-bases-de-React.md)                                 | JSX, composants fonctionnels, rendu     |
+| 03  | [Composants et Props](React/Cours/03-Composants-et-Props.md)                               | Communication et réutilisation          |
+| 04  | [Gestion de l’état (useState)](React/Cours/04-Gestion-de-l-etat.md)                        | Données dynamiques et réactivité        |
+| 05  | [Cycle de vie et effets (useEffect)](React/Cours/05-Cycle-de-vie-et-UseEffect.md)          | Effets secondaires et nettoyage         |
+| 06  | [Événements et gestion du DOM](React/Cours/06-Evenements-et-DOM.md)                        | Interaction utilisateur et DOM virtuel  |
+| 07  | [Structuration d’une application React](React/Cours/07-Structuration-d-une-application.md) | Organisation, hooks, providers          |
+| 08  | [Aller plus loin](React/Cours/08-Aller-plus-loin.md)                                       | Contexte, router et optimisation        |
 
 ---
 
