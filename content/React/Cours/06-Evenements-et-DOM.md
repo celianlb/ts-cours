@@ -82,7 +82,7 @@ export function LinkLike({ onNavigate }: { onNavigate: () => void }) {
 }
 ```
 
-![Flux React — Événement → Handler → État → Rendu](/img/flux.png)
+![Flux React — Événement → Handler → État → Rendu](/static/img/flux.png)
 
 ---
 
